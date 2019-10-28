@@ -15,7 +15,17 @@ user = input('''Enter your Roll No in the format
 BE/10xxx/1x :
 ''')
 passwd = getpass('Enter your password : ')
-browser = webdriver.Firefox()
+
+#CHoose between Chrome and Firefox
+
+choose = int(input('1. Firefox   2. Chrome'))
+if(choose == 1):
+  browser = webdriver.Firefox()
+elif(choose == 2):
+  browser = webdriver.Chrome()
+else:
+  print('Choose 1 or 2')
+
 browser.get('http://erp.bitmesra.ac.in')
 user_name = browser.find_element_by_id('txt_username')
 user_name.send_keys(user)
